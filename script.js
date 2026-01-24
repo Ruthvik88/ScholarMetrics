@@ -1,25 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Nav Toggle
     document.getElementById('nav-sgpa').addEventListener('click', () => switchApp('sgpa'));
     document.getElementById('nav-target').addEventListener('click', () => switchApp('target'));
 
-    // SGPA App Events
     document.getElementById('btn-step1').addEventListener('click', goToStep2);
     document.getElementById('btn-add-subject').addEventListener('click', addSingleSubject);
     document.getElementById('btn-calculate').addEventListener('click', calculateSGPA);
     document.getElementById('btn-reset-partial').addEventListener('click', resetSGPA);
     document.getElementById('btn-restart').addEventListener('click', resetSGPA);
 
-    // Target App Events
     document.getElementById('btn-calc-target').addEventListener('click', calculateTarget);
 
-    // Alert Modal Event
     document.getElementById('btn-close-alert').addEventListener('click', closeAlert);
 });
 
-// ==========================================
-// CUSTOM ALERT LOGIC
-// ==========================================
 function showAlert(message) {
     document.getElementById('alert-msg-content').innerText = message;
     document.getElementById('custom-alert').style.display = 'flex';
@@ -29,9 +22,6 @@ function closeAlert() {
     document.getElementById('custom-alert').style.display = 'none';
 }
 
-// ==========================================
-// NAVIGATION & DESCRIPTION LOGIC
-// ==========================================
 function switchApp(appName) {
     const sgpaBtn = document.getElementById('nav-sgpa');
     const targetBtn = document.getElementById('nav-target');
@@ -54,9 +44,6 @@ function switchApp(appName) {
     }
 }
 
-// ==========================================
-// APP A: SGPA CALCULATOR
-// ==========================================
 let subjectCount = 0;
 
 function getGradePoint(percentage) {
@@ -198,9 +185,7 @@ function switchStep(fromId, toId) {
     document.getElementById(toId).classList.add('active');
 }
 
-// ==========================================
-// APP B: TARGET CGPA CALCULATOR
-// ==========================================
+
 function calculateTarget() {
     const currentCGPA = parseFloat(document.getElementById('currentCGPA').value);
     const semsDone = parseFloat(document.getElementById('semestersDone').value);
@@ -225,8 +210,6 @@ function calculateTarget() {
     const pointsRequiredRemaining = totalPointsNeeded - currentPoints;
     
     const requiredSGPA = pointsRequiredRemaining / semsRemaining;
-
-    // Display
     const resultBox = document.getElementById('target-result-box');
     const valueDisplay = document.getElementById('requiredSGPA');
     const msgDisplay = document.getElementById('targetMessage');

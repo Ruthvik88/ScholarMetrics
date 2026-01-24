@@ -1,21 +1,19 @@
 :root {
-    /* LIGHT THEME PALETTE */
-    --bg: #f3f4f6;          /* Light Gray Background */
-    --card-bg: #ffffff;     /* Pure White Cards */
-    --text: #1f2937;        /* Dark Gray Text (for readability) */
-    --text-muted: #6b7280;  /* Muted Gray Text */
-    --primary: #4f46e5;     /* Indigo-600 */
-    --primary-hover: #4338ca; /* Indigo-700 */
-    --border: #e5e7eb;      /* Light Border */
-    --input-bg: #ffffff;    /* White Inputs */
-    --success: #059669;     /* Green-600 */
-    --danger: #dc2626;      /* Red-600 */
+    --bg: #f3f4f6;          
+    --card-bg: #ffffff;     
+    --text: #1f2937;        
+    --text-muted: #6b7280; 
+    --primary: #4f46e5;     
+    --primary-hover: #4338ca; 
+    --border: #e5e7eb;     
+    --input-bg: #ffffff;    
+    --success: #059669;     
+    --danger: #dc2626;     
     
-    /* GLASS & UI VARIABLES */
-    --nav-bg: rgba(255, 255, 255, 0.85); /* White Glass */
-    --hover-bg: rgba(0, 0, 0, 0.05);     /* Light gray hover effect */
-    --row-bg: #f9fafb;                   /* Very light gray for rows */
-    --alert-bg: rgba(255, 255, 255, 0.95); /* White Alert Box */
+    --nav-bg: rgba(255, 255, 255, 0.85); 
+    --hover-bg: rgba(0, 0, 0, 0.05);     
+    --row-bg: #f9fafb;                  
+    --alert-bg: rgba(255, 255, 255, 0.95); 
 }
 
 body {
@@ -31,12 +29,11 @@ body {
     padding-top: 80px;
 }
 
-/* HEADER */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 60px;
     background-color: var(--nav-bg);
-    backdrop-filter: blur(12px); /* Stronger blur for light mode */
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
@@ -58,7 +55,6 @@ body {
 .nav-btn:hover { color: var(--text); background-color: var(--hover-bg); }
 .nav-btn.active { background-color: var(--primary); color: white; }
 
-/* CONTAINER */
 .container {
     background-color: var(--card-bg);
     padding: 2rem;
@@ -73,7 +69,6 @@ body {
     font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.5;
 }
 
-/* FORMS */
 .step { display: none; animation: fadeIn 0.4s ease; }
 .step.active { display: block; }
 .form-group { margin-bottom: 1rem; }
@@ -125,7 +120,6 @@ button.secondary:hover { background-color: #475569; }
 
 .divider { margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border); }
 
-/* GRID */
 .subject-grid { display: grid; gap: 1rem; margin-bottom: 1rem; }
 .subject-row {
     display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -134,7 +128,6 @@ button.secondary:hover { background-color: #475569; }
     border: 1px solid var(--border); border-radius: 10px; align-items: end;
 }
 
-/* RESULTS */
 .result-box {
     text-align: center; padding: 2rem;
     background: rgba(79, 70, 229, 0.05); /* Very light indigo tint */
@@ -145,10 +138,8 @@ button.secondary:hover { background-color: #475569; }
 .small-text { font-size: 0.85rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 10px; }
 .sgpa-value {
     font-size: 3.5rem; font-weight: 800; color: var(--primary);
-    /* Removed text-shadow for cleaner look in light mode */
 }
 
-/* CUSTOM ALERT MODAL STYLES */
 .alert-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
