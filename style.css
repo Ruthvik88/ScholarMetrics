@@ -1,0 +1,192 @@
+:root {
+    /* LIGHT THEME PALETTE */
+    --bg: #f3f4f6;          /* Light Gray Background */
+    --card-bg: #ffffff;     /* Pure White Cards */
+    --text: #1f2937;        /* Dark Gray Text (for readability) */
+    --text-muted: #6b7280;  /* Muted Gray Text */
+    --primary: #4f46e5;     /* Indigo-600 */
+    --primary-hover: #4338ca; /* Indigo-700 */
+    --border: #e5e7eb;      /* Light Border */
+    --input-bg: #ffffff;    /* White Inputs */
+    --success: #059669;     /* Green-600 */
+    --danger: #dc2626;      /* Red-600 */
+    
+    /* GLASS & UI VARIABLES */
+    --nav-bg: rgba(255, 255, 255, 0.85); /* White Glass */
+    --hover-bg: rgba(0, 0, 0, 0.05);     /* Light gray hover effect */
+    --row-bg: #f9fafb;                   /* Very light gray for rows */
+    --alert-bg: rgba(255, 255, 255, 0.95); /* White Alert Box */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+/* HEADER */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 60px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px); /* Stronger blur for light mode */
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); }
+.nav-links { display: flex; gap: 1rem; }
+
+.nav-btn {
+    background: transparent; border: none; color: var(--text-muted);
+    font-size: 0.9rem; font-weight: 600; padding: 0.5rem 1rem;
+    border-radius: 6px; cursor: pointer; width: auto; margin-top: 0;
+    transition: all 0.2s;
+}
+.nav-btn:hover { color: var(--text); background-color: var(--hover-bg); }
+.nav-btn.active { background-color: var(--primary); color: white; }
+
+/* CONTAINER */
+.container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 600px;
+}
+
+.description {
+    text-align: center; color: var(--text-muted);
+    font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.5;
+}
+
+/* FORMS */
+.step { display: none; animation: fadeIn 0.4s ease; }
+.step.active { display: block; }
+.form-group { margin-bottom: 1rem; }
+
+label {
+    display: block; margin-bottom: 0.5rem; font-weight: 600;
+    color: var(--text-muted); font-size: 0.9rem;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%; padding: 0.8rem; border: 1px solid var(--border);
+    background-color: var(--input-bg); color: var(--text);
+    border-radius: 8px; box-sizing: border-box; font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus { 
+    outline: none; 
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); 
+}
+
+button {
+    background-color: var(--primary); color: white; border: none;
+    padding: 0.8rem 1.5rem; border-radius: 8px; font-size: 1rem;
+    font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+button:hover { 
+    background-color: var(--primary-hover); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+}
+
+button.btn-outline {
+    background-color: transparent; border: 2px dashed var(--border);
+    color: var(--text-muted); margin-top: 0;
+    box-shadow: none;
+}
+button.btn-outline:hover {
+    border-color: var(--primary); color: var(--primary);
+    background-color: rgba(79, 70, 229, 0.05);
+    transform: none;
+    box-shadow: none;
+}
+
+button.secondary { background-color: #64748b; margin-top: 0.8rem; box-shadow: none; }
+button.secondary:hover { background-color: #475569; }
+
+.divider { margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border); }
+
+/* GRID */
+.subject-grid { display: grid; gap: 1rem; margin-bottom: 1rem; }
+.subject-row {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px; padding: 15px; 
+    background-color: var(--row-bg); /* Updated for light mode */
+    border: 1px solid var(--border); border-radius: 10px; align-items: end;
+}
+
+/* RESULTS */
+.result-box {
+    text-align: center; padding: 2rem;
+    background: rgba(79, 70, 229, 0.05); /* Very light indigo tint */
+    border: 1px solid rgba(79, 70, 229, 0.2); border-radius: 12px;
+    margin-top: 1.5rem; animation: fadeIn 0.5s;
+}
+.result-box h3 { margin-top: 0; color: var(--text); }
+.small-text { font-size: 0.85rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 10px; }
+.sgpa-value {
+    font-size: 3.5rem; font-weight: 800; color: var(--primary);
+    /* Removed text-shadow for cleaner look in light mode */
+}
+
+/* CUSTOM ALERT MODAL STYLES */
+.alert-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Lighter dimming */
+    backdrop-filter: blur(4px); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.alert-box {
+    background: var(--alert-bg); 
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alert-box h3 { margin-top: 0; color: var(--primary); }
+.alert-box p { color: var(--text); margin-bottom: 1.5rem; }
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .subject-row { grid-template-columns: 1fr; gap: 15px; }
+    .navbar { padding: 0 1rem; }
+    .logo { font-size: 1rem; }
+}

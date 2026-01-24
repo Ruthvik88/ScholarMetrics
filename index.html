@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarMetrics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">ScholarMetrics</div>
+    <div class="nav-links">
+        <button id="nav-sgpa" class="nav-btn active">SGPA Calculator</button>
+        <button id="nav-target" class="nav-btn">Target Planner</button>
+    </div>
+</header>
+
+<div class="container">
+    <p id="app-description" class="description">
+        Calculate your Semester Grade Point Average (SGPA) based on your subject marks and credits.
+    </p>
+
+    <div id="app-sgpa">
+        <div id="step1" class="step active">
+            <div class="form-group">
+                <label for="numSubjects">Number of Subjects</label>
+                <input type="number" id="numSubjects" placeholder="e.g. 5" min="1">
+            </div>
+            <div class="form-group">
+                <label for="defaultMaxMarks">Default Max Marks (per subject)</label>
+                <input type="number" id="defaultMaxMarks" placeholder="e.g. 100">
+            </div>
+            <button id="btn-step1">Next: Enter Details</button>
+        </div>
+
+        <div id="step2" class="step">
+            <p class="subtext">Enter subject details. Credits must be entered manually.</p>
+            <div id="subjectsContainer" class="subject-grid"></div>
+            <button id="btn-add-subject" class="btn-outline">+ Add Subject</button>
+            <hr class="divider">
+            <button id="btn-calculate">Calculate SGPA</button>
+            <button class="secondary" id="btn-reset-partial">Start Over</button>
+        </div>
+
+        <div id="step3" class="step">
+            <div class="result-box">
+                <h2>Your SGPA</h2>
+                <div class="sgpa-value" id="finalScore">0.00</div>
+                <p id="gradeMessage"></p>
+            </div>
+            <button id="btn-restart">Calculate Another</button>
+        </div>
+    </div>
+
+    <div id="app-target" style="display: none;">
+        <div class="step active">
+            <div class="form-group">
+                <label>Current CGPA</label>
+                <input type="number" id="currentCGPA" placeholder="e.g. 7.5" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Semesters Completed</label>
+                <input type="number" id="semestersDone" placeholder="e.g. 4">
+            </div>
+            <div class="form-group">
+                <label>Target CGPA</label>
+                <input type="number" id="targetCGPA" placeholder="e.g. 8.5" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Target to be achieved by which Semester?</label>
+                <input type="number" id="totalSemesters" placeholder="e.g. 8">
+            </div>
+
+            <button id="btn-calc-target">Calculate Required SGPA</button>
+
+            <div id="target-result-box" class="result-box" style="display: none;">
+                <h3>Required Average SGPA</h3>
+                <p class="small-text">For the remaining semesters</p>
+                <div class="sgpa-value" id="requiredSGPA">0.00</div>
+                <p id="targetMessage"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="custom-alert" class="alert-overlay">
+    <div class="alert-box">
+        <h3>Notice</h3>
+        <p id="alert-msg-content"></p>
+        <button id="btn-close-alert">OK</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
