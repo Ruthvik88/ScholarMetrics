@@ -12,6 +12,7 @@
     <div class="logo">ScholarMetrics</div>
     <div class="nav-links">
         <button id="nav-sgpa" class="nav-btn active">SGPA Calculator</button>
+        <button id="nav-see" class="nav-btn">SEE Planner</button>
         <button id="nav-target" class="nav-btn">Target Planner</button>
     </div>
 </header>
@@ -50,6 +51,57 @@
                 <p id="gradeMessage"></p>
             </div>
             <button id="btn-restart">Calculate Another</button>
+        </div>
+    </div>
+
+    <div id="app-see" style="display: none;">
+        <div id="see-step1" class="step active">
+            <div class="form-group">
+                <label for="seeNumSubjects">Number of Subjects</label>
+                <input type="number" id="seeNumSubjects" placeholder="e.g. 5" min="1">
+            </div>
+            <div class="form-group">
+                <label for="defaultMidSemMaxMarks">Default Mid-Sem Max Marks</label>
+                <input type="number" id="defaultMidSemMaxMarks" value="50" min="1">
+            </div>
+            <div class="form-group">
+                <label for="defaultSeeMaxMarks">Default SEE Max Marks</label>
+                <input type="number" id="defaultSeeMaxMarks" value="50" min="1">
+            </div>
+            <button id="btn-see-step1">Next: Enter Details</button>
+        </div>
+
+        <div id="see-step2" class="step">
+            <p class="subtext">Enter your mid-sem marks, credits, and CGPA goal for this semester.</p>
+            <div id="seeSubjectsContainer" class="subject-grid"></div>
+            <button id="btn-add-see-subject" class="btn-outline">+ Add Subject</button>
+            <hr class="divider">
+
+            <div class="planner-grid">
+                <div class="form-group">
+                    <label for="seeCurrentCGPA">Current CGPA</label>
+                    <input type="number" id="seeCurrentCGPA" placeholder="e.g. 7.5" step="0.01" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="seeCompletedSemesters">Completed Semesters</label>
+                    <input type="number" id="seeCompletedSemesters" placeholder="e.g. 4" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="seeTargetCGPA">Target CGPA After This Semester</label>
+                    <input type="number" id="seeTargetCGPA" placeholder="e.g. 8.0" step="0.01" min="0">
+                </div>
+            </div>
+
+            <button id="btn-calculate-see">Calculate Required SEE Marks</button>
+            <button class="secondary" id="btn-reset-see">Start Over</button>
+
+            <div id="see-result-box" class="result-box" style="display: none;">
+                <h3>Required SEE Plan</h3>
+                <p class="small-text">Minimum semester target needed to reach your CGPA goal after this semester.</p>
+                <div class="sgpa-value" id="seeRequiredSGPA">0.00</div>
+                <p id="seeResultMessage"></p>
+                <div id="seeBreakdown" class="see-breakdown"></div>
+            </div>
         </div>
     </div>
 
