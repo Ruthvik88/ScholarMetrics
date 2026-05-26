@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('seeSubjectsContainer').addEventListener('click', handleSeeRowActions);
 
     document.getElementById('btn-calc-target').addEventListener('click', calculateTarget);
+    document.getElementById('btn-go-see').addEventListener('click', () => switchApp('see'));
     document.getElementById('btn-close-alert').addEventListener('click', closeAlert);
 });
 
